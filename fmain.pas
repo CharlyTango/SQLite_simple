@@ -53,10 +53,13 @@ begin
   if not assigned(dmsqldb) then dmsqldb := Tdmsqldb.Create(self);
 
   if not dmsqldb.InitDataModule then exit; //Initialize Datamodule
-  dmsqldb.OpenConnection;                  //open Database Connection
+
+  {open Database Connection while telling from where it was called from}
+  dmsqldb.OpenConnection({$I %FILE%} + '/' + {$I %CURRENTROUTINE%} + '/'+ {$INCLUDE %LINE%});
 
   {Here, the second form is glued into tsSearch in order to create possibilities
-  for the use of several windows in the main form during the design phase }
+   for the use of several windows in the main without messing the mainform too much.
+   No need to destroy the window because the main window takes care about that}
   fsearch:=TFormSearch.Create(self);
   fsearch.BorderStyle:=bsNone;
   fsearch.Parent:=tsSearch;

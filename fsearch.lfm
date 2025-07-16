@@ -1,23 +1,23 @@
 object FormSearch: TFormSearch
-  Left = 782
-  Height = 722
-  Top = 537
-  Width = 932
+  Left = 539
+  Height = 723
+  Top = 541
+  Width = 933
   Caption = 'FormSearch'
-  ClientHeight = 722
-  ClientWidth = 932
+  ClientHeight = 723
+  ClientWidth = 933
   DesignTimePPI = 168
   LCLVersion = '3.4.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 208
     Top = 0
-    Width = 932
+    Width = 933
     Align = alTop
     BevelOuter = bvNone
     Caption = 'Panel1'
     ClientHeight = 208
-    ClientWidth = 932
+    ClientWidth = 933
     TabOrder = 0
     object DBGrid1: TDBGrid
       Left = 0
@@ -34,7 +34,7 @@ object FormSearch: TFormSearch
       Left = 473
       Height = 208
       Top = 0
-      Width = 459
+      Width = 460
       Align = alClient
       Color = clWindow
       Columns = <>
@@ -53,37 +53,37 @@ object FormSearch: TFormSearch
     Left = 0
     Height = 9
     Top = 208
-    Width = 932
+    Width = 933
     Align = alTop
     ResizeAnchor = akTop
   end
   object Panel2: TPanel
     Left = 0
-    Height = 505
+    Height = 506
     Top = 217
-    Width = 932
+    Width = 933
     Align = alClient
     BevelOuter = bvNone
     Caption = 'Panel2'
-    ClientHeight = 505
-    ClientWidth = 932
+    ClientHeight = 506
+    ClientWidth = 933
     TabOrder = 2
     object DBGrid3: TDBGrid
       Left = 0
-      Height = 505
+      Height = 506
       Top = 0
-      Width = 932
+      Width = 933
       Align = alClient
       Color = clWindow
       Columns = <      
         item
           Title.Caption = 'title'
-          Width = 300
+          Width = 299
           FieldName = 'title'
         end      
         item
           Title.Caption = 'artist'
-          Width = 300
+          Width = 299
           FieldName = 'artist'
         end>
       DataSource = DataSource3
@@ -95,12 +95,12 @@ object FormSearch: TFormSearch
     Params = <>
     Macros = <>
     Left = 168
-    Top = 104
+    Top = 103
   end
   object DataSource1: TDataSource
     DataSet = SQLQuery1
     Left = 296
-    Top = 120
+    Top = 121
   end
   object SQLQuery2: TSQLQuery
     FieldDefs = <>
@@ -111,15 +111,15 @@ object FormSearch: TFormSearch
   end
   object DataSource2: TDataSource
     DataSet = SQLQuery2
-    Left = 864
-    Top = 104
+    Left = 865
+    Top = 103
   end
   object SQLQuery3: TSQLQuery
     FieldDefs = <>
     Params = <>
     Macros = <>
     Left = 173
-    Top = 377
+    Top = 376
   end
   object DataSource3: TDataSource
     DataSet = SQLQuery3

@@ -21,6 +21,7 @@
     <PublishOptions>
       <Version Value="2"/>
       <DestinationDirectory Value="$(ProjPath)\published\"/>
+      <OpenInFileMan Value="True"/>
       <UseFileFilters Value="True"/>
       <FileFilter Value="*.(pas|pp|inc|lpr|lfm|lrs|lpi|lpk|xml|sh|db)"/>
     </PublishOptions>
@@ -47,25 +48,37 @@
         <Filename Value="fmain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="form_main"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
         <Filename Value="dmmain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="dmsqldb"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
       </Unit>
       <Unit>
         <Filename Value="fsearch.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormSearch"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>
       <Unit>
         <Filename Value="fmaintainartists.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormMaintainArtists"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+      </Unit>
+      <Unit>
+        <Filename Value="udmicons.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dmIcons"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="udmIcons"/>
       </Unit>
     </Units>
   </ProjectOptions>

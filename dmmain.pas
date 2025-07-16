@@ -2,6 +2,8 @@ unit dmmain;
 
 {$mode ObjFPC}{$H+}
 
+{$DEFINE USELOGINPROMPT}
+
 interface
 
 uses
@@ -26,7 +28,7 @@ type
     procedure Writedirecttofile(sFilename:string;s: string; bReset:boolean=false);
   public
     function InitDataModule:boolean;
-    procedure OpenConnection;
+    procedure OpenConnection(sCalledFrom:string ='');
   end;
 
 var
@@ -109,6 +111,10 @@ begin
   //SQLTransaction1.Params.Add('read_committed');
   //SQLTransaction1.Params.Add('isc_tpb_lock_read=PARMTAB');
 
+  {$ifdef USELOGINPROMPT}
+  SQLite3Connection1.LoginPrompt:=true;
+  {$endif}
+
   sFullDBName:=Application.Location + DirectorySeparator + cSQLiteDBName;
   if not FileExists(sFullDBName) then begin
     showmessage('Database file does not exist`:'+sFullDBName);
@@ -123,8 +129,10 @@ begin
   FbWriteSQLLogToFile:=true; //Switch on SQL Log;
 end;
 
-procedure Tdmsqldb.OpenConnection;
+procedure Tdmsqldb.OpenConnection(sCalledFrom: string);
 begin
+  if sCalledFrom='' then sCalledFrom:='unknown';
+
   if not SQLite3Connection1.Connected then
   begin
     try
@@ -133,12 +141,12 @@ begin
       On E : Exception do
         begin
           showmessage( LineEnding
+                      + 'Called From: ' + sCalledFrom + LineEnding
                       + 'File: ' + {$INCLUDE %FILE%} + LineEnding
                       + 'Methodname: ' + {$I %CURRENTROUTINE%} + LineEnding
                       + 'Linenumber: ' + {$INCLUDE %LINE%} + LineEnding +LineEnding
                       + 'Connection to Database failed '+  LineEnding+ LineEnding
                       + E.Message);
-          Exit;
         end;
     end;
   end;
