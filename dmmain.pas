@@ -140,11 +140,8 @@ begin
     except
       On E : Exception do
         begin
-          showmessage( LineEnding
+          showmessage( {$I calledfrom.inc}
                       + 'Called From: ' + sCalledFrom + LineEnding
-                      + 'File: ' + {$INCLUDE %FILE%} + LineEnding
-                      + 'Methodname: ' + {$I %CURRENTROUTINE%} + LineEnding
-                      + 'Linenumber: ' + {$INCLUDE %LINE%} + LineEnding +LineEnding
                       + 'Connection to Database failed '+  LineEnding+ LineEnding
                       + E.Message);
         end;

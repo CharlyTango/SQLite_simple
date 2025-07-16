@@ -35,7 +35,7 @@ var
 implementation
 
 uses
-  dmmain,fsearch,fmaintainartists;
+  dmmain,fsearch,fmaintainartists, udmicons;
 
 {$R *.lfm}
 
@@ -55,11 +55,15 @@ begin
   if not dmsqldb.InitDataModule then exit; //Initialize Datamodule
 
   {open Database Connection while telling from where it was called from}
-  dmsqldb.OpenConnection({$I %FILE%} + '/' + {$I %CURRENTROUTINE%} + '/'+ {$INCLUDE %LINE%});
+  dmsqldb.OpenConnection({$I calledfrom.inc});
+
+  {Create the datamodule containing the application icons for later use the same way}
+  if not assigned(dmIcons) then dmIcons := TdmIcons.Create(self);
 
   {Here, the second form is glued into tsSearch in order to create possibilities
    for the use of several windows in the main without messing the mainform too much.
-   No need to destroy the window because the main window takes care about that}
+   No need to destroy the window  at terminanting the application because the main
+   window takes care about that}
   fsearch:=TFormSearch.Create(self);
   fsearch.BorderStyle:=bsNone;
   fsearch.Parent:=tsSearch;

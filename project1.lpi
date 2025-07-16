@@ -80,6 +80,10 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="udmIcons"/>
       </Unit>
+      <Unit>
+        <Filename Value="calledfrom.inc"/>
+        <IsPartOfProject Value="True"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
